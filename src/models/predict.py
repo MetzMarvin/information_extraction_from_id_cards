@@ -68,7 +68,7 @@ def get_class_from_prediction(predictions, CLASSES):
     mask = np.ones_like(predictions)
     classes = np.array(CLASSES)
     indices_m_and_n = np.where(((classes != "M") & (classes != "F")))[0]
-    mask[0:15, 10:] = 0
+    # mask[0:15, 10:] = 0
     mask[16, indices_m_and_n] = 0
     mask[17:24, 10:] = 0
     mask[24:, 0:10] = 0
@@ -123,7 +123,6 @@ def get_personal_information_from_predictions(outputs):
         "first_name": first_name,
         "last_name": last_name,
         "birthdate": birthdate,
-        "sex": sex,
         "identity_num": id_number,
         "expiration_date": exp_date,
     }
